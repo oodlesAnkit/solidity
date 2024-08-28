@@ -1,0 +1,121 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_self",
+						"type": "uint256"
+					}
+				],
+				"name": "increament",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_self",
+						"type": "uint256"
+					}
+				],
+				"name": "decrement",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_self",
+						"type": "uint256"
+					},
+					{
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "incrementByValue",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_self",
+						"type": "uint256"
+					},
+					{
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "decrementByValue",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/import/library.sol": "Libraries"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/import/library.sol": {
+			"keccak256": "0xd17e82df67c684a4627698ad2a918688326c67fe4929839292de7ff63e571c81",
+			"urls": [
+				"bzzr://c5b2cc2712af96a19098431c960bbe75363421c95d31d2f567a5b5473883c65c"
+			]
+		}
+	},
+	"version": 1
+}

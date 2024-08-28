@@ -1,0 +1,52 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "test",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/import/testLibrary.sol": "UseLibrary"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/import/library.sol": {
+			"keccak256": "0x35cb40ca446aca83249b6ca5b23bb5fd43bc44551de91138094e4a3a99d55a19",
+			"urls": [
+				"bzzr://9c792ad32915669aea2f8d2b1f878d6431077c08d0a7608d40b149bf8ff0f7d1"
+			]
+		},
+		"contracts/import/testLibrary.sol": {
+			"keccak256": "0x0562673ca5a8c7757b0b764f5d8d3ee6bb624c5f26f6ac9d016607baca522019",
+			"urls": [
+				"bzzr://a184488bfb141d003cc048db023c75125f0d11966ae02f3f08f19a55351677a9"
+			]
+		}
+	},
+	"version": 1
+}
