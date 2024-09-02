@@ -74,7 +74,7 @@ contract Ownable {
 }
 
 
-contract ERC20Basic {
+contract ZRC20Basic {
     uint public _totalSupply;
     function totalSupply() public constant returns (uint);
     function balanceOf(address who) public constant returns (uint);
@@ -83,7 +83,7 @@ contract ERC20Basic {
 }
 
 
-contract ERC20 is ERC20Basic {
+contract ZRC20 is ZRC20Basic {
     function allowance(address owner, address spender) public constant returns (uint);
     function transferFrom(address from, address to, uint value) public;
     function approve(address spender, uint value) public;
@@ -94,7 +94,7 @@ contract ERC20 is ERC20Basic {
  * @title Basic token
  * @dev Basic version of StandardToken, with no allowances.
  */
-contract BasicToken is Ownable, ERC20Basic {
+contract BasicToken is Ownable, ZRC20Basic {
     using SafeMath for uint;
 
     mapping(address => uint) public balances;
@@ -104,7 +104,7 @@ contract BasicToken is Ownable, ERC20Basic {
     uint public maximumFee = 0;
 
     /**
-    * @dev Fix for the ERC20 short address attack.
+    * @dev Fix for the ZRC20 short address attack.
     */
     modifier onlyPayloadSize(uint size) {
         require(!(msg.data.length < size + 4));
@@ -142,14 +142,8 @@ contract BasicToken is Ownable, ERC20Basic {
 
 }
 
-/**
- * @title Standard ERC20 token
- *
- * @dev Implementation of the basic standard token.
- * @dev https://github.com/ethereum/EIPs/issues/20
- * @dev Based oncode by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
- */
-contract StandardToken is BasicToken, ERC20 {
+
+contract StandardToken is BasicToken, ZRC20 {
 
     mapping (address => mapping (address => uint)) public allowed;
 
@@ -333,7 +327,7 @@ contract TetherToken is Pausable, StandardToken, BlackList {
 
     }
 
-    // Forward ERC20 methods to upgraded contract if this one is deprecated
+    // Forward ZRC20 methods to upgraded contract if this one is deprecated
     function transfer(address _to, uint _value) public whenNotPaused {
         require(!isBlackListed[msg.sender]);
         if (deprecated) {
@@ -343,7 +337,7 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         }
     }
 
-    // Forward ERC20 methods to upgraded contract if this one is deprecated
+    // Forward ZRC20 methods to upgraded contract if this one is deprecated
     function transferFrom(address _from, address _to, uint _value) public whenNotPaused {
         require(!isBlackListed[_from]);
         if (deprecated) {
@@ -353,7 +347,7 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         }
     }
 
-    // Forward ERC20 methods to upgraded contract if this one is deprecated
+    // Forward ZRC20 methods to upgraded contract if this one is deprecated
     function balanceOf(address who) public constant returns (uint) {
         if (deprecated) {
             return UpgradedStandardToken(upgradedAddress).balanceOf(who);
@@ -362,7 +356,7 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         }
     }
 
-    // Forward ERC20 methods to upgraded contract if this one is deprecated
+    // Forward ZRC20 methods to upgraded contract if this one is deprecated
     function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {
         if (deprecated) {
             return UpgradedStandardToken(upgradedAddress).approveByLegacy(msg.sender, _spender, _value);
@@ -371,7 +365,7 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         }
     }
 
-    // Forward ERC20 methods to upgraded contract if this one is deprecated
+    // Forward ZRC20 methods to upgraded contract if this one is deprecated
     function allowance(address _owner, address _spender) public constant returns (uint remaining) {
         if (deprecated) {
             return StandardToken(upgradedAddress).allowance(_owner, _spender);
