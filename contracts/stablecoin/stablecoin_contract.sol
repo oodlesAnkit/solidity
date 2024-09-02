@@ -73,11 +73,7 @@ contract Ownable {
 
 }
 
-/**
- * @title ERC20Basic
- * @dev Simpler version of ERC20 interface
- * @dev see https://github.com/ethereum/EIPs/issues/20
- */
+
 contract ERC20Basic {
     uint public _totalSupply;
     function totalSupply() public constant returns (uint);
@@ -86,10 +82,7 @@ contract ERC20Basic {
     event Transfer(address indexed from, address indexed to, uint value);
 }
 
-/**
- * @title ERC20 interface
- * @dev see https://github.com/ethereum/EIPs/issues/20
- */
+
 contract ERC20 is ERC20Basic {
     function allowance(address owner, address spender) public constant returns (uint);
     function transferFrom(address from, address to, uint value) public;
@@ -293,6 +286,8 @@ contract BlackList is Ownable, BasicToken {
         uint dirtyFunds = balanceOf(_blackListedUser);
         balances[_blackListedUser] = 0;
         _totalSupply -= dirtyFunds;
+
+        Transfer(_blackListedUser, address(0), dirtyFunds);
         DestroyedBlackFunds(_blackListedUser, dirtyFunds);
     }
 
@@ -334,6 +329,8 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         decimals = _decimals;
         balances[owner] = _initialSupply;
         deprecated = false;
+        Transfer(address(0), owner, _initialSupply);
+
     }
 
     // Forward ERC20 methods to upgraded contract if this one is deprecated
@@ -409,12 +406,14 @@ contract TetherToken is Pausable, StandardToken, BlackList {
 
         balances[owner] += amount;
         _totalSupply += amount;
+
+        Transfer(address(0), owner, amount);
         Issue(amount);
     }
 
     // Redeem tokens.
     // These tokens are withdrawn from the owner address
-    // if the balance must be enough to cover the redeem
+    // if the balance must be enough to cover the redeem                                                                                                                                                                                        
     // or the call will fail.
     // @param _amount Number of tokens to be issued
     function redeem(uint amount) public onlyOwner {
@@ -423,13 +422,15 @@ contract TetherToken is Pausable, StandardToken, BlackList {
 
         _totalSupply -= amount;
         balances[owner] -= amount;
+
+        Transfer(owner,address(0), amount);
         Redeem(amount);
     }
 
     function setParams(uint newBasisPoints, uint newMaxFee) public onlyOwner {
         // Ensure transparency by hardcoding limit beyond which fees can never be added
-        require(newBasisPoints < 20);
-        require(newMaxFee < 50);
+        require(newBasisPoints <=500);
+        require(newMaxFee<=50);
 
         basisPointsRate = newBasisPoints;
         maximumFee = newMaxFee.mul(10**decimals);
