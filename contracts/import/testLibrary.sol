@@ -14,7 +14,7 @@ contract TestLibrary {
     function testDecrement(uint _base) view returns (uint){
         return _base.decrement();
     }
-
+    
     function testIncrementByValue(uint _base, uint value) view returns (uint){
         return _base.decrementByValue(value);
     }
