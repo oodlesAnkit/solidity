@@ -1,7 +1,3 @@
-/**
- *Submitted for verification at Etherscan.io on 2017-11-28
-*/
-
 pragma solidity ^0.4.17;
 
 /**
@@ -184,11 +180,6 @@ contract StandardToken is BasicToken, ZRC20 {
     * @param _value The amount of tokens to be spent.
     */
     function approve(address _spender, uint _value) public onlyPayloadSize(2 * 32) {
-
-        // To change the approve amount you first have to reduce the addresses`
-        //  allowance to zero by calling `approve(_spender, 0)` if it is not
-        //  already 0 to mitigate the race condition described here:
-        //  https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
         require(!((_value != 0) && (allowed[msg.sender][_spender] != 0)));
 
         allowed[msg.sender][_spender] = _value;
@@ -292,7 +283,7 @@ contract BlackList is Ownable, BasicToken {
     event RemovedBlackList(address _user);
 
 }
-
+    
 contract UpgradedStandardToken is StandardToken{
     // those methods are called by the legacy contract
     // and they must ensure msg.sender to be the contract address
