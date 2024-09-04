@@ -712,9 +712,9 @@
 	},
 	"sources": {
 		"contracts/stablecoin/stablecoin_contract.sol": {
-			"keccak256": "0xc32bdfc7ec70fd2776e14cad09045d04db4fa8efe1b3fdf93d8bfc03b169a70f",
+			"keccak256": "0xfbb04d4cdecf81bb1e5eaf950a7bc2a6f55cfd0c7dcef79c100bce8b26b8a47f",
 			"urls": [
-				"bzzr://3b637e7790646f9d898c5d471f2791f583d49adbae23900feacbe59eb5c12909"
+				"bzzr://f05f2f6a2517a2416853bd5397e0d572a1bd870456f7ad0707356ad7929de6c0"
 			]
 		}
 	},
