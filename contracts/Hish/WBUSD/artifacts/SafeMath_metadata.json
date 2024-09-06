@@ -14,21 +14,21 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Hish/WBUSD/contractWithSafeMath.sol": "SafeMath"
+			"contracts/Hish/WBUSD/contarct_ZRC20.sol": "SafeMath"
 		},
 		"evmVersion": "byzantium",
 		"libraries": {},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Hish/WBUSD/contractWithSafeMath.sol": {
-			"keccak256": "0xb1b5941537b2c01bed87dda185e9bb31c544be370b2e34c218d02dd80006b935",
+		"contracts/Hish/WBUSD/contarct_ZRC20.sol": {
+			"keccak256": "0x1b24b3434a8793ba4a7013c0527a7e67bb96c7a378342a7bca2a8100639b06f4",
 			"urls": [
-				"bzzr://430d6d20f7af22f683948746f2364f90e2982f76ee4910115d0037bb066be8eb"
+				"bzzr://e17b22fd3443bb0a328e9755ce8893f3eaedcb075233299c4b7a6cdb100ac27e"
 			]
 		}
 	},
