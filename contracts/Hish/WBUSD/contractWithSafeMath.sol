@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
+pragma solidity 0.4.24;
 
 library SafeMath {
     function add(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -22,7 +22,7 @@ contract WUSD {
 
     string public name = "WethioUSD";
     string public symbol = "WUSD";
-    uint8 public decimals = 2;
+    uint256 public decimals = 2;
     uint256 public totalSupply;
 
     mapping(address => uint256) public balanceOf;
